@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+    <link rel="stylesheet" href="{% static '/css/pg2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="page-container">
+        <header>
+            House Layout & Floor Plans
+            <a href='/'><i class="fa fa-home"></i></a>
+        </header>
+        <div class="form-container">
+            <!-- Ground Floor Form -->
+            <form method="get" action="/floors/g-f/">
+                <div class="slider-container">
+                    <button type="button" onclick="prevImage('slider1')">❮</button>
+                    <img id="slider1" src='/static/Images/living/img1.jpg' alt="Ground Floor Image">
+                    <button type="button" onclick="nextImage('slider1')">❯</button>
+                </div>
+                <section class="floor-info">
+                    <h2>Ground Floor</h2>
+                    <ul>
+                        <li>Kitchen - Modular design</li>
+                        <li>Pooja Room - Serene & peaceful</li>
+                        <li>Bedroom - Spacious with ventilation</li>
+                        <li>Bathroom - Modern fittings</li>
+                    </ul>
+                    <button type="submit">View Rooms</button>
+                </section>
+            </form>
+
+            <!-- First Floor Form -->
+            <form method="get" action="/floors/f-f">
+                <div class="slider-container">
+                    <button type="button" onclick="prevImage('slider2')">❮</button>
+                    <img id="slider2" src='/static/Images/bedroom2/img1.jpg' alt="First Floor Image">
+                    <button type="button" onclick="nextImage('slider2')">❯</button>
+                </div>
+                <section class="floor-info">
+                    <h2>First Floor</h2>
+                    <ul>
+                        <li>Living Room - Elegant interior</li>
+                        <li>Study Room - Quiet workspace</li>
+                        <li>Master Bedroom - Attached balcony</li>
+                        <li>Bathroom - Stylish & spacious</li>
+                    </ul>
+                    <button type="submit">View Rooms</button>
+                </section>
+            </form>
+
+            <!-- Terrace Form -->
+            <form method="get" action="/floors/t-f/">
+                <div class="slider-container">
+                    <button type="button" onclick="prevImage('slider3')">❮</button>
+                    <img id="slider3" src='/static/Images/terrace/img1.jpg' alt="Terrace Image">
+                    <button type="button" onclick="nextImage('slider3')">❯</button>
+                </div>
+                <section class="floor-info">
+                    <h2>Terrace</h2>
+                    <ul>
+                        <li>Open Sitting Area - Great for evening tea</li>
+                        <li>Garden Space - Green & fresh air</li>
+                        <li>Storage Room - Useful for extra storage</li>
+                        <li>Solar Panel Area - Energy efficient</li>
+                    </ul>
+                    <button type="submit">View Terrace</button>
+                </section>
+            </form>
+        </div>
+
+        <section class="contact-owner">
+            <h2>Contact Owner:</h2>
+            <p>Name: Subramanian L</p>
+            <p>Phone: +91 9842321837</p>
+            <footer>
+                <a href="https://wa.me/1234567890" target="_blank" class="btn btn-success"><i class="bi bi-whatsapp"></i> Whatsapp</a>
+                <a href="tel:+1234567890" class="btn btn-primary"><i class="bi bi-telephone-fill"></i> Call Us</a>
+            </footer>
+        </section>
+    </div>
+
+</body>
+<script>
+     let img1=document.getElementById("slider1");
+     let img2=document.getElementById("slider2");
+     let img3=document.getElementById("slider3");
+     let images1 = ['/static/Images/living/img1.jpg',
+         '/static/Images/living/img5.jpg',
+        '/static/Images/bedroom1/img1.jpg',
+     '/static/Images/bedroom1/img5.jpg',];
+     let images2 = ['/static/Images/bedroom2/img1.jpg',
+         '/static/Images/bedroom2/img3.jpg',
+        '/static/Images/bedroom3/img2.jpg',
+     '/static/Images/bedroom3/img5.jpg',];
+     let images3 = ['/static/Images/terrace/img1.jpg',
+         '/static/Images/terrace/img2.jpg',
+         '/static/Images/terrace/img3.jpg',];
+     let index = [0,0,0]
+     let slider = [img1,img2,img3];
+     let images=[];
+     let ind=-1;
+
+     function nextImage(nm) {
+         if(nm === 'slider1')
+         {
+             images=images1;
+             ind=0;
+         }
+         else if(nm === 'slider2')
+         {
+             images=images2;
+             ind=1;
+         }
+         else
+         {
+             images=images3;
+             ind=2;
+         }
+        index[ind] = (index[ind] + 1) % images.length;
+        slider[ind].src = images[index[ind]];
+     }
+
+    function prevImage(nm) {
+         if(nm === 'slider1')
+         {
+             images=images1;
+             ind=0;
+         }
+         else if(nm === 'slider2')
+         {
+             images=images2;
+             ind=1;
+         }
+         else
+         {
+             images=images3;
+             ind=2;
+         }
+        index[ind] = (index[ind] - 1 + images.length) % images.length;
+        slider[ind].src = images[index[ind]];
+    }
+    function changeImage() {
+        index = (index + 1) % images.length;
+        slider.src = images[index];
+    }
+</script>
+</html>

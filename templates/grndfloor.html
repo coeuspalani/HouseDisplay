@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constructors</title>
+    <link rel="stylesheet" href="{% static 'css/pg3-gf.css' %}">
+
+
+
+</head>
+<body>
+    <header>
+            Ground Floor
+
+    </header>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div class="slider-container">
+                <img id="slider1" src='/static/Images/living/img1.jpg' alt="Ground Floor Image">
+            </div>
+            <section class="text-block">
+                <h3 class="identitfier">Living Room</h3>
+                <button type="button" onclick="tarcheck()">View More Images</button>
+            </section>
+        </div>
+    </form>
+    <form method="get" action="">
+        <div class="container">
+            <div class="slider-container">
+                <img id="slider2" src='/static/Images/kitchen/img1.jpg' alt="Ground Floor Image">
+            </div>
+            <section class="text-block">
+                <h3 class="identitfier">Kitchen</h3>
+                <button type="button" onclick=tarcheck()>View More Images</button>
+            </section>
+        </div>
+    </form>
+    <form method="get" action="">
+        <div class="container">
+            <div class="slider-container">
+                <img id="slider3" src='/static/Images/bedroom1/img1.jpg' alt="Ground Floor Image">
+            </div>
+            <section class="text-block">
+                <h3 class="identitfier">Bedroom</h3>
+                <button type="button" onclick=tarcheck()>View More Images</button>
+            </section>
+        </div>
+    </form>
+
+</body>
+<script>
+        function tarcheck()
+        {
+            window.location.href="/floors/rooms/";
+        }
+</script>
+</html>

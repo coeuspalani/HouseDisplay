@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constructors</title>
+    <link rel="stylesheet" href="{% static 'css/pg3-gf.css' %}">
+
+</head>
+<body>
+    <header>
+            First Floor
+        <a href='/'><i class="fa fa-home"></i></a>
+
+    </header>
+    <form method="get" action="">
+        <div class="container">
+            <div class="slider-container">
+                <img id="slider1" src='/static/Images/bedroom3/img4.jpg' alt="First Floor Image">
+            </div>
+            <section class="text-block">
+                <h3>Bedroom 1</h3>
+                <button type="button" onclick="tarcheck()">View More Images</button>
+            </section>
+        </div>
+    </form>
+    <form method="get" action="">
+        <div class="container">
+            <div class="slider-container">
+                <img id="slider2" src='/static/Images/bedroom2/img1.jpg' alt="First Floor Image">
+            </div>
+            <section class="text-block">
+                <h3>Bedroom2</h3>
+                <button type="button" onclick="tarcheck()">View More Images</button>
+            </section>
+        </div>
+    </form>
+    <form method="get" action="">
+        <div class="container">
+            <div class="slider-container">
+                <img id="slider3" src='/static/Images/bathroom2/img1.jpg' alt="First Floor Image">
+            </div>
+            <section class="text-block">
+                <h3>Bathroom</h3>
+                <button type="button" onclick="tarcheck()">View More Images</button>
+            </section>
+        </div>
+    </form>
+
+    <script>
+        function tarcheck()
+        {
+            window.location.href="/floors/rooms/";
+        }
+    </script>
+
+</body>
+</html>

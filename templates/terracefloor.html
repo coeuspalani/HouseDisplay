@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constructors</title>
+    <link rel="stylesheet" href="{% static 'css/pg3-gf.css' %}">
+
+
+
+</head>
+<body>
+    <header>
+            Terrace
+        <a href='/'><i class="fa fa-home"></i></a>
+
+    </header>
+    <form method="get" action="">
+        <div class="container">
+            <div class="slider-container">
+                <button type="button" onclick="prevImage()">❮</button>
+                <img id="slider" src='/static/Images/terrace/img1.jpg' alt="Ground Floor Image">
+                <button type="button" onclick="nextImage()">❯</button>
+            </div>
+            <section class="text-block">
+                <h3>Terrace</h3>
+                <button type="button" onclick="tarcheck()">View More Images</button>
+            </section>
+        </div>
+    </form>
+
+    <script>
+        let images = [
+        '/static/Images/terrace/img1.jpg',
+        '/static/Images/terrace/img2.jpg',
+        '/static/Images/terrace/img3.jpg',]
+    let index = 0;
+    let slider = document.getElementById("slider");
+
+    function nextImage() {
+        index = (index + 1) % images.length;
+        slider.src = images[index];
+    }
+
+    function prevImage() {
+        index = (index - 1 + images.length) % images.length;
+        slider.src = images[index];
+    }
+    function tarcheck()
+    {
+            window.location.href="/floors/rooms/";
+    }
+    </script>
+
+
+</body>
+</html>
